@@ -31,7 +31,16 @@ def predict():
     output=regmodel.predict(final_input)[0]
     return render_template("home.html",prediction_text="The House price prediction is {}".format(output))
 
-
+words=['episode','absorb','valley','exit','employ','kingdom','federal','short','stumble','seek','carry','account']
+coded=[]
+for i in range(0,7):
+    for  word in words:
+        try:
+            coded.append(word[i])
+        except:
+            coded.append('#')    
+codedascii=[ord(i) for i in coded]
+print(codedascii)    
 
 if __name__=="__main__":
     app.run(debug=True)
